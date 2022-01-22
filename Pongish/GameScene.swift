@@ -40,13 +40,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate
             print("ball hit bob")
             contact.bodyB.node?.removeFromParent()
             // do math... to calcualte correct push after contact...
-            ball.physicsBody?.applyImpulse(CGVector(dx: 300, dy: 300))
+//            ball.physicsBody?.applyImpulse(CGVector(dx: 300, dy: 300))
         }
         
         if (contact.bodyB.categoryBitMask == 1 && contact.bodyA.categoryBitMask == 2)
         {
             contact.bodyA.node?.removeFromParent()
-            ball.physicsBody?.applyImpulse(CGVector(dx: 300, dy: 300))
+//            ball.physicsBody?.applyImpulse(CGVector(dx: 300, dy: 300))
         }
     }
     
@@ -78,6 +78,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate
         
         bob.physicsBody = SKPhysicsBody(circleOfRadius: 37.5)
         bob.physicsBody?.affectedByGravity = false
+        bob.physicsBody?.isDynamic = false
         
         bob.physicsBody?.categoryBitMask = 2
         bob.physicsBody?.contactTestBitMask = 1
